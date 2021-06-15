@@ -14,6 +14,7 @@ class EdgeSerializer(serializers.Serializer):
         return edge.exists()
 
     def validate(self, data):
+        # validate that an edge doesnt already exist between two nodes
         start = data["From"]
         end = data["To"]
         if self.has_edge(start, end):
